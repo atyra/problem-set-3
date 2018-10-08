@@ -22,7 +22,7 @@ public class ProblemSet3 {
 	public static void main(String[] args) {
 		ProblemSet3 ps3 = new ProblemSet3();
 		
-		System.out.println("dateFashion: (5, 10), (5, 5), and (2, 8)");
+        System.out.println("dateFashion: (5, 10), (5, 5), and (2, 8)");
 		ps3.dateFashion(5, 10);
 		ps3.dateFashion(5,  5);
 		ps3.dateFashion(2,  8);
@@ -136,6 +136,19 @@ public class ProblemSet3 {
 		if (bigFive + small < goal) {
 			System.out.println("NO");
 		}
+		else if (bigFive == 0 && small < goal) {
+			System.out.println("NO");
+		}
+		else if (bigFive > goal) {
+			for (int test = bigFive; test == 0; test = test - 5) {
+				if (test + small == goal) {
+					System.out.println("YES");
+				}
+				else if (test + small < goal){
+					System.out.println("NO");
+				}
+			}
+		}
 		else if (goal % bigFive > small) {
 			System.out.println("NO");
 		}
@@ -147,37 +160,37 @@ public class ProblemSet3 {
 	public void loneSum(int a, int b, int c) {
 		if ((a != b) && (b != c) && (a != c)) {
 			int sum = a + b + c;
-			System.out.println(sum);
+			System.out.println(sum + ".");
 		}
 		else if ((a == b) && (a != c)) {
 			int sum = c;
-			System.out.println(sum);
+			System.out.println(sum + ".");
 		}
 		else if ((a == c) && (a != b)) {
 			int sum = b;
-			System.out.println(sum);
+			System.out.println(sum + ".");
 		}
 		else if ((b == c) && (a != b)) {
 			int sum = a;
-			System.out.println(sum);
+			System.out.println(sum + ".");
 		}
 		else if ((a == b) && (b == c)) {
-			System.out.println(0);
+			System.out.println("0.");
 		}
 	}
 	
 	public void luckySum(int a, int b, int c) {
 		if (a == 13) {
-		    System.out.println(0);
+		    System.out.println("0.");
 		}
 		else if ((b == 13) && (a != 13)) {
-		    System.out.println(a);
+		    System.out.println(a + ".");
 		}
 		else if ((c == 13) && (a != 13) && (b != 13)) {
-		    System.out.println(a + b);
+		    System.out.println(a + b + ".");
 		}
 		else {
-		    System.out.println(a + b + c);
+		    System.out.println(a + b + c + ".");
 		}
 	}
 	
@@ -210,7 +223,10 @@ public class ProblemSet3 {
 	public void isPrime(int n) {
 		if (n > 1) {
 			if (n % 2 != 0) {
-				if ((n % 3 != 0) && (n % 5 != 0) && (n % 7 != 0)) {
+				if((n == 3) || (n == 5) || (n == 7)) {
+					System.out.println("PRIME");
+				}
+				else if ((n % 3 != 0) && (n % 5 != 0) && (n % 7 != 0)) {
 					System.out.println("PRIME");
 				}
 				else {
